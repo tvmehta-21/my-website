@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Tilak Mehta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="projects-header">
+            <div class="page-title">projects</div>
+        </header>
+
+        <!-- Main content for "Coming Soon..." with typing animation -->
+        <main class="projects-main">
+            <div class="typing-container">
+                <span class="typing-text" id="typing-text"></span><span class="cursor"></span>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Typing animation for "Coming Soon..."
+        const typingElement = document.getElementById('typing-text');
+        const text = 'Coming Soon...';
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 150;
+
+        function typeText() {
+            if (!isDeleting && charIndex < text.length) {
+                typingElement.textContent = text.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 150;
+            } else if (isDeleting && charIndex > 0) {
+                typingElement.textContent = text.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 80;
+            } else if (!isDeleting && charIndex === text.length) {
+                // Wait before starting to delete
+                typingSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Wait before starting to type again
+                typingSpeed = 1000;
+                isDeleting = false;
+            }
+
+            setTimeout(typeText, typingSpeed);
+        }
+
+        // Start the animation
+        typeText();
+    </script>
+</body>
+</html>
+
