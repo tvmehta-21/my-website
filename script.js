@@ -1,7 +1,7 @@
 // Countdown timer for Las Vegas GP
 function updateCountdown() {
     // Set your target date here - Las Vegas GP (November 22, 2025, Pacific Time)
-    const targetDate = new Date('2025-11-22T00:00:00-08:00').getTime();
+    const targetDate = new Date('2025-12-18T00:00:00-08:00').getTime();
     
     const now = new Date().getTime();
     const distance = targetDate - now;
